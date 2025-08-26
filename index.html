@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suprathik portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <div class="nav-brand">Suprathik</div>
+                <div class="nav-items">
+                    <div class="nav-links">
+                        <button class="nav-link" onclick="scrollToSection('about')">About</button>
+                        <button class="nav-link" onclick="scrollToSection('education')">Education</button>
+                        <button class="nav-link" onclick="scrollToSection('skills')">Skills</button>
+                        <button class="nav-link" onclick="scrollToSection('certifications')">Certifications</button>
+                        <button class="nav-link" onclick="scrollToSection('projects')">Projects</button>
+                        <button class="nav-link" onclick="scrollToSection('contact')">Contact</button>
+                    </div>
+                    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Left Content -->
+                    <div class="hero-left">                   
+                        <div class="hero-text">
+                            <h1 class="hero-title">Menta Suprathik</h1>
+                            <div class="hero-subtitle">Web developer</div>
+                            <p class="hero-description">
+                                Passionate about bridging hardware and software through innovative solutions. 
+                                Specializing in embedded systems, web development, and IoT applications.
+                            </p>
+                        </div>
+
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                                <span>View Projects</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button class="btn btn-outline" onclick="downloadResume()">
+                                <i class="fas fa-download"></i>
+                                <span>Download Resume</span>
+                            </button>
+                            <button class="btn btn-outline" onclick="scrollToSection('contact')">
+                                <i class="fas fa-envelope"></i>
+                                <span>Get in Touch</span>
+                            </button>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://github.com/Suprathik19?tab=repositories" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/mentasuprathik/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Content - Profile Photo -->
+                    <div class="hero-right">
+                        <div class="profile-photo-container">
+                            <div class="profile-photo-bg"></div>
+                            <img src="profile-photo.jpg" alt="Menta Suprathik" class="profile-photo">
+                            <div class="profile-photo-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-description">
+                        Dedicated ECE student with a passion for technology and innovation
+                    </p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="about-background">
+                            <h3 class="about-heading">Background</h3>
+                            <p class="about-paragraph">
+                                Currently pursuing a Bachelor's degree in Electrical and Computer Engineering with a focus on IT applications. 
+                                I'm passionate about creating solutions that combine hardware design with modern software development.
+                            </p>
+                            <p class="about-paragraph">
+                                My interests span from low-level embedded programming to full-stack web development, 
+                                always looking for ways to innovate at the intersection of hardware and software.
+                            </p>
+                        </div>
+                        
+                        <div class="focus-areas">
+                            <h3 class="about-heading">Focus Areas</h3>
+                            <div class="focus-grid">
+                                <div class="focus-item">
+                                    <i class="fas fa-microchip"></i>
+                                    <span>Embedded Systems</span>
+                                </div>
+                                <div class="focus-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Web Development</span>
+                                </div>
+                                <div class="focus-item">
+                                    <i class="fas fa-database"></i>
+                                    <span>IoT Systems</span>
+                                </div>
+                                <!-- <div class="focus-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Digital Signal Processing</span>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Achievement Cards -->
+                    <div class="achievements">
+                        <div class="achievement-grid">
+                            <div class="achievement-card">
+                                <div class="achievement-number">9.3</div>
+                                <div class="achievement-label">CGPA</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number">15+</div>
+                                <div class="achievement-label">Projects</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number">100+</div>
+                                <div class="achievement-label">Coding Problems</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number">3</div>
+                                <div class="achievement-label">Certifications</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number">1</div>
+                                <div class="achievement-label">Internships</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Education</h2>
+                    <p class="section-description">
+                        Academic journey and qualifications
+                    </p>
+                </div>
+                
+                <div class="education-content">
+                    <div class="education-card">
+                        <div class="education-main">
+                            <div class="education-degree">
+                                <h3 class="degree-title">Bachelor of Technology in Electronics and Communication Engineering</h3>
+                                <p class="university-name">VIT-AP University, Andhra Pradesh</p>
+                                <div class="education-meta">
+                                    <span class="education-duration">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        2022 - 2026 (Expected)
+                                    </span>
+                                    <span class="education-gpa">
+                                        <i class="fas fa-star"></i>
+                                        CGPA: 9.35/10
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="education-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="education-card">
+                        <div class="education-main">
+                            <div class="education-degree">
+                                <h3 class="degree-title">Intermediate (Class XII)</h3>
+                                <p class="university-name">Sri Chaitanya Junior College</p>
+                                <div class="education-meta">
+                                    <span class="education-duration">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        2020 - 2022
+                                    </span>
+                                    <span class="education-gpa">
+                                        <i class="fas fa-star"></i>
+                                        Percentage: 95.8%
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="education-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="education-card">
+                        <div class="education-main">
+                            <div class="education-degree">
+                                <h3 class="degree-title">Secondary School (Class X)</h3>
+                                <p class="university-name">Sri Chaitanya Techno School</p>
+                                <div class="education-meta">
+                                    <span class="education-duration">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        2019 - 2020
+                                    </span>
+                                    <span class="education-gpa">
+                                        <i class="fas fa-star"></i>
+                                        CGPA: 10/10
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="education-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-description">
+                        A comprehensive toolkit spanning hardware design to software development
+                    </p>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="skill-title">Programming</h3>
+                        </div>
+                        <div class="skill-content">
+                            <ul class="skill-list">
+                                <li>C</li>
+                                <li>Python</li>
+                                <li>Java</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3 class="skill-title">Web Development</h3>
+                        </div>
+                        <div class="skill-content">
+                            <ul class="skill-list">
+                                <li>React</li>
+                                <li>Node.js</li>
+                                <li>Java-Script</li>
+                                <li>Express</li>
+                                <li>HTML/CSS</li>
+                                <li>REST APIs</li>
+                                <li>MongoDB</li>
+                                <li>MySQL</li>
+                                <li>Oracle sql</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h3 class="skill-title">Embedded Systems</h3>
+                        </div>
+                        <div class="skill-content">
+                            <ul class="skill-list">
+                                <li>Arduino</li>
+                                <li>Raspberry Pi</li>
+                                <li>Microcontrollers</li>
+                                <li>Real-time Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-terminal"></i>
+                            </div>
+                            <h3 class="skill-title">Tools & Platforms</h3>
+                        </div>
+                        <div class="skill-content">
+                            <ul class="skill-list">
+                                <li>Git</li>
+                                <li>vs-code</li>
+                            </ul>
+                            <br>
+                            <h3 class="skill-title">Reporting Tools</h3>
+                            <ul class="skill-list">
+                                <li>OTBI</li>
+                                <li>BI-Publisher</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="certifications-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Certifications</h2>
+                    <p class="section-description">
+                        Professional certifications and credentials that validate my expertise
+                    </p>
+                </div>
+                
+                <div class="certifications-grid">
+                    <div class="certification-card">
+                        <h3 class="certification-title">Embedded System Design Internship</h3>
+                        <p class="certification-issuer">Maven Silicon</p>
+                        <p class="certification-date">July 2025</p>
+                    </div>
+
+                    <div class="certification-card">
+                        <h3 class="certification-title">C Certification</h3>
+                        <p class="certification-issuer">Applogic Computer Institute</p>
+                        <p class="certification-date">June 2023 - Aug 2023</p>
+                    </div>
+
+                    <div class="certification-card">
+                        <h3 class="certification-title">Python Certification</h3>
+                        <p class="certification-issuer">Applogic Computer Institute</p>
+                        <p class="certification-date">May 2023 - June 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+       <section id="projects" class="projects-section">
+            
+        <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-description">
+                        A showcase of innovative solutions combining hardware and software expertise
+                    </p>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="project-header">
+                            <h3 class="project-title">Smart Home IoT System</h3>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <p class="project-description">
+                            Developed a comprehensive IoT system using ESP32 microcontrollers, sensors, and a React dashboard for real-time monitoring and control.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">ESP32</span>
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">MQTT</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="project-header">
+                            <h3 class="project-title">Juice -point Website</h3>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <p class="project-description">
+                           The Juice Point Website is a simple, attractive, and responsive landing page built using HTML and CSS. It is designed for a juice shop or café to showcase its products, highlight freshness, and attract customers online.
+                        </p><div class="project-tech">
+                             <span class="tech-badge">HTML</span>
+                            <span class="tech-badge">css</span>
+                            <span class="tech-badge">js</span>
+                            <span class="tech-badge">JWT</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">My-Sql</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="project-header">
+                            <h3 class="project-title">Quiz Application</h3>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <p class="project-description">
+                          I have developed a  Quiz Application using  web technologies. The app allows users to answer a set of multiple-choice questions and instantly view their score at the end. It is lightweight, easy to use, and designed to make learning interactive.
+                        </p><div class="project-tech">
+                            <span class="tech-badge">HTML</span>
+                            <span class="tech-badge">css</span>
+                            <span class="tech-badge">js</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="project-header">
+                            <h3 class="project-title">Blind-Detection Stick for vision-Imapaired</h3>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <p class="project-description">
+                            This project aims to design and develop a Smart Blind Detection Stick to assist vision-impaired individuals in navigating their surroundings safely and independently. The stick is equipped with sensors and feedback mechanisms that can detect obstacles up to certain distances and alert the user in real time.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Arduino Ide</span>
+                            <span class="tech-badge">Arduino uno R3</span>
+                            <span class="tech-badge">Ultra Sonic Sensors</span>
+                            <span class="tech-badge">Buzzers</span>
+                         
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projects-cta">
+                    <button class="btn btn-outline">
+                        <i class="fab fa-github"></i>
+                        <span>View All Projects on GitHub</span>
+                    </button>
+                </div>
+            </div></section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="section-description">
+                        Interested in collaboration or discussing opportunities? I'd love to hear from you.
+                    </p>
+                </div>
+                
+                <div class="contact-content">
+                    <!-- Left Side - Personal Details -->
+                    <div class="contact-info">
+                        <h3 class="contact-heading">Get in Touch</h3>
+                        
+                        <div class="contact-buttons">
+                            <a href="mailto:alex.johnson@email.com" class="contact-button">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-text">
+                                    <div class="contact-label">alex.johnson@email.com</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="contact-button">
+                                <i class="fab fa-linkedin"></i>
+                                <div class="contact-text">
+                                    <div class="contact-label">/in/alexjohnson</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="contact-button">
+                                <i class="fab fa-github"></i>
+                                <div class="contact-text">
+                                    <div class="contact-label">@alexjohnson</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Contact Form -->
+                    <div class="contact-form-container">
+                        <div class="contact-form-card">
+                            <form id="contact-form" class="contact-form">
+                                <h3 class="form-title">Send Me a Message</h3>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Tell me about your project or inquiry..." required></textarea>
+                                </div>
+                                
+                                <div id="success-message" class="success-message hidden">
+                                    <p>Message sent successfully! I'll get back to you soon.</p>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary form-submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>Send Message</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-text">
+                        <p>© 2024 Alex Johnson. Built with passion and precision.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
