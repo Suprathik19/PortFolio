@@ -145,68 +145,19 @@ function resetForm() {
 
 // Resume Download
 function downloadResume() {
-    const resumeContent = `ALEX JOHNSON
-Electrical & Computer Engineering Student
-
-CONTACT INFORMATION
-Email: suprathik973@email.com
-LinkedIn: /in/mentasuprathik
-GitHub: @alexjohnson
-
-EDUCATION
-Bachelor of Science in Electronics & Communication Engineering
-University Name | Expected Graduation: 2027
-GPA: 9.3/10
-
-TECHNICAL SKILLS
-Programming: Python, C/C++, Java, JavaScript, TypeScript, VHDL, Assembly
-Web Development: React, Node.js, Express, HTML/CSS, REST APIs, MongoDB, PostgreSQL
-Embedded Systems: Arduino, Raspberry Pi, STM32, FPGA, Microcontrollers
-Tools: Git, Docker, Linux, MATLAB, Simulink, KiCad, Altium Designer, AWS
-
-PROJECTS
-• Smart Home IoT System - ESP32, React, Node.js, MQTT, MongoDB
-• Digital Signal Processing Filter - VHDL, MATLAB, FPGA, Xilinx
-• Full-Stack Web Application - React, Express.js, PostgreSQL, JWT
-• Autonomous Line-Following Robot - Python, OpenCV, Raspberry Pi
-
-CERTIFICATIONS
-• Embedded Systems Design - Maven Silicon (july 2025)
-• Oracle Cloud Infrastructure 2025 Generative AI Professional (August 2025)
-• C Certification - Applogic Computer Institute (June-Aug 2023)
-• Python Certification - Applogic Computer Institute (May-June 2023)
-
-ACHIEVEMENTS
-• First Place - UI/UX Design Competition, VIT University (Feb 2024)
-• First Place - Code Sprint Challenge, CSI Chapter VIT-AP (Nov 2023)
-• 100+ Coding Problems Solved
-• 15+ Projects Completed
-• 3 Internships
-
-EXPERIENCE
-Software Engineering Intern | Tech Company | Summer 2023
-• Developed embedded software for IoT devices
-• Collaborated on full-stack web applications
-• Implemented signal processing algorithms
-
-This is a sample resume. Please replace with actual content.`;
-    
     try {
-        const blob = new Blob([resumeContent], { type: 'text/plain' });
-        const url = window.URL.createObjectURL(blob);
+        // Path to your uploaded resume file
+        const resumePath = "Suprathik Resume.pdf"; // keep this file in your project folder
+
         const link = document.createElement('a');
-        
-        link.href = url;
-        link.download = 'Alex_Johnson_Resume.txt';
+        link.href = resumePath;
+        link.download = 'Menta_Suprathik_Resume.pdf';
         link.style.display = 'none';
-        
+
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        
-        // Clean up the object URL
-        window.URL.revokeObjectURL(url);
-        
+
         console.log('Resume download initiated');
     } catch (error) {
         console.error('Error downloading resume:', error);
