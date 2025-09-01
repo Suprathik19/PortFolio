@@ -147,7 +147,7 @@ function resetForm() {
 function downloadResume() {
     try {
         // Path to your uploaded resume file
-        const resumePath = "Suprathik Resume.pdf"; // keep this file in your project folder
+        const resumePath = "SuprathikResume.pdf"; // keep this file in your project folder
 
         const link = document.createElement('a');
         link.href = resumePath;
