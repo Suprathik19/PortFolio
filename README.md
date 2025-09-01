@@ -1,177 +1,88 @@
-# Alex Johnson - ECE Portfolio (Vanilla Version)
+# 🌟 Menta Suprathik
 
-This is a vanilla HTML, CSS, and JavaScript version of the ECE portfolio website with a violet and white color theme.
+**Web Developer | Embedded Systems Enthusiast | IoT Innovator**
 
-## Files Structure
-
-```
-portfolio-vanilla/
-├── index.html          # Main HTML structure
-├── styles.css          # All styling including violet theme and dark mode
-├── script.js           # JavaScript functionality
-├── profile-photo.jpg   # Profile photo (replace with your own)
-└── README.md           # This file
-```
-
-## Features
-
-### 🎨 Design Features
-- **Violet Color Theme**: Custom OKLCH color palette for precise violet theming
-- **Dark Mode**: Toggle between light and dark themes with system preference detection
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **Smooth Animations**: Hover effects, transitions, and scroll-triggered animations
-- **Modern UI**: Glass morphism effects, gradient backgrounds, and polished styling
-
-### 🔧 Interactive Features
-- **Smooth Scrolling Navigation**: Click navigation links to smoothly scroll to sections
-- **Contact Form**: Fully functional form with validation and success feedback
-- **Resume Download**: Download resume as text file (customize the content)
-- **Dark Mode Toggle**: Persistent theme switching with localStorage
-- **Responsive Mobile Menu**: Works on all screen sizes
-- **Keyboard Navigation**: Full keyboard accessibility support
-
-### 📱 Sections Included
-1. **Hero Section**: Large title, subtitle, call-to-action buttons, and circular profile photo
-2. **About Me**: Personal background, focus areas, and achievement cards
-3. **Technical Skills**: Four categories with list-style formatting and violet bullet points
-4. **Certifications**: Large rectangular certification cards
-5. **Projects**: Featured project showcase with tech badges
-6. **Contact**: Personal information buttons and contact form
-7. **Footer**: Simple footer with social links
-
-## Customization Guide
-
-### 🖼️ Replace Profile Photo
-1. Replace `profile-photo.jpg` with your own photo
-2. Make sure it's square (e.g., 400x400px) for best results
-3. Keep the same filename or update the `src` attribute in `index.html`
-
-### ✏️ Update Personal Information
-Edit these sections in `index.html`:
-
-**Hero Section** (lines ~214-226):
-```html
-<h1 class="hero-title">Your Name</h1>
-<div class="hero-subtitle">Your Title</div>
-<p class="hero-description">Your description...</p>
-```
-
-**Contact Information** (lines ~577-601):
-```html
-<a href="mailto:your.email@example.com" class="contact-button">
-<a href="https://linkedin.com/in/yourprofile" class="contact-button">
-<a href="https://github.com/yourusername" class="contact-button">
-```
-
-**Skills** (lines ~382-442):
-Update the skill lists in each category
-
-**Certifications** (lines ~460-507):
-Replace with your actual certifications
-
-**Projects** (lines ~522-548):
-Update with your real projects
-
-### 🎨 Customize Colors
-The violet theme is defined in CSS custom properties at the top of `styles.css`:
-
-```css
-:root {
-    --violet-600: oklch(0.585 0.163 302.5);
-    --violet-700: oklch(0.515 0.160 302.5);
-    /* etc. */
-}
-```
-
-To change the color:
-1. Visit [OKLCH Color Picker](https://oklch.com/)
-2. Pick your desired color
-3. Replace the OKLCH values in the CSS
-
-### ⚙️ Customize Resume Content
-Edit the resume content in `script.js` (lines ~108-152):
-
-```javascript
-const resumeContent = `YOUR NAME
-Your Title
-
-CONTACT INFORMATION
-Email: your.email@example.com
-// ... rest of your content
-`;
-```
-
-## How to Use
-
-### 🌐 Local Development
-1. Download all files to a folder
-2. Open `index.html` in any modern web browser
-3. That's it! No server required.
-
-### 🚀 Deployment Options
-- **GitHub Pages**: Upload to a GitHub repository and enable GitHub Pages
-- **Netlify**: Drag and drop the folder to Netlify
-- **Vercel**: Connect your Git repository to Vercel
-- **Web Hosting**: Upload files via FTP to any web hosting service
-
-### 📧 Contact Form Setup
-The contact form currently simulates submission. To make it functional:
-
-1. **Using Formspree**:
-   - Sign up at [Formspree.io](https://formspree.io/)
-   - Replace the form action: `<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">`
-
-2. **Using Netlify Forms**:
-   - Add `netlify` attribute to form: `<form netlify>`
-   - Deploy to Netlify
-
-3. **Custom Backend**:
-   - Update the `handleSubmit` function in `script.js` to send data to your server
-
-## Browser Support
-- Chrome/Chromium (recommended)
-- Firefox
-- Safari
-- Edge
-- All modern mobile browsers
-
-## Font Dependencies
-The portfolio uses Google Fonts:
-- **Inter**: Main UI font
-- **Playfair Display**: Serif font for headings (if needed)
-
-These are loaded from Google Fonts CDN in the HTML head.
-
-## Icon Dependencies
-- **Font Awesome 6**: For all icons
-- Loaded from CDN, no local installation required
-
-## Performance Features
-- Optimized CSS with minimal unused styles
-- Efficient JavaScript with event delegation
-- Intersection Observer for scroll animations
-- Debounced resize handling
-- Smooth scrolling with native CSS
-
-## Accessibility Features
-- Semantic HTML structure
-- Proper heading hierarchy
-- Alt text for images
-- Keyboard navigation support
-- Focus indicators
-- High contrast colors
-- Screen reader friendly
-
-## License
-Feel free to use this code for your own portfolio. No attribution required, but appreciated!
-
-## Credits
-- Built with vanilla HTML, CSS, and JavaScript
-- Icons by Font Awesome
-- Fonts by Google Fonts
-- Color system using OKLCH color space
-- Inspired by modern design principles
+Passionate about bridging hardware and software through innovative solutions. Specializing in embedded systems, web development, and IoT applications.
 
 ---
 
-**Note**: Remember to replace all placeholder content with your actual information before using this portfolio publicly!
+## 👨‍🎓 About Me
+
+I am a dedicated **ECE (Electrical and Computer Engineering)** student with a strong passion for technology and innovation. Currently pursuing my **B.Tech at VIT-AP University, Andhra Pradesh (2023–2027)** with a CGPA of **9.23/10**.
+
+My interests range from **low-level embedded programming** to **full-stack web development** — always driven to explore the intersection between hardware and software.
+
+- 📊 **CGPA**: 9.3  
+- 🛠 **Projects Completed**: 15+  
+- 💡 **Coding Problems Solved**: 100+  
+- 🎓 **Certifications**: 3  
+- 💼 **Internships**: 1  
+
+---
+
+## 🎓 Education
+
+- **B.Tech in ECE**, VIT-AP University, Andhra Pradesh  
+  *2023 – 2027 (CGPA: 9.23/10)*  
+- **Intermediate**, Sri Deepthi Junior College, Proddatur, Andhra Pradesh  
+  *2021 – 2023 (Percentage: 98.2%)*  
+- **SSC**, Gopi Krishna High School, Proddatur, Andhra Pradesh  
+  *2017 – 2020 (CGPA: 97.33)*  
+
+---
+
+## 🛠 Technical Skills
+
+- **Programming Languages**: C, Python, Java  
+- **Web Development**: React, Node.js, JavaScript, Express, HTML/CSS, REST APIs, MongoDB, MySQL, Oracle SQL  
+- **Embedded Systems**: Arduino, Raspberry Pi, Microcontrollers, Real-time Systems  
+- **Tools & Platforms**: Git, VS Code  
+- **Reporting Tools**: OTBI, BI-Publisher  
+
+---
+
+## 📜 Certifications
+
+- **Embedded System Design Internship**, Maven Silicon — *July 2025*  
+- **C Certification**, Applogic Computer Institute — *June 2023 – August 2023*  
+- **Python Certification**, Applogic Computer Institute — *May 2023 – June 2023*  
+
+---
+
+## 🚀 Featured Projects
+
+### 🔹 1. Clap Switch Automation  
+An **Arduino-based smart clap switch system** that detects sound patterns to control appliances. Integrated with an **LCD display** and **LED indicators** for real-time switching status.  
+**Tech Used**: Arduino Uno, Sound Sensor, LCD, LEDs, Buzzer  
+
+---
+
+### 🔹 2. Juice-Point Website  
+A responsive and visually appealing landing page for a juice shop or café.  
+**Tech Used**: HTML, CSS, JavaScript, JWT, Node.js, MySQL  
+
+---
+
+### 🔹 3. Quiz Application  
+A lightweight, interactive quiz app that presents multiple-choice questions and displays scores instantly.  
+**Tech Used**: HTML, CSS, JavaScript  
+
+---
+
+### 🔹 4. Blind-Detection Stick for Vision-Impaired  
+A smart assistive device built on **Arduino Uno R3**, with ultrasonic sensors and buzzers to detect obstacles and alert visually impaired users in real time.  
+**Tech Used**: Arduino Uno, Ultrasonic Sensors, Buzzer, Vibration Motor  
+
+---
+
+## 📫 Contact
+
+I’m open to collaborations and opportunities — feel free to reach out!  
+
+- 📧 **Email**: suprathik973@email.com  
+- 🔗 **LinkedIn**: [https://www.linkedin.com/in/mentasuprathik/](#)  
+- 🐦 **Twitter / GitHub**: [https://github.com/Suprathik19?tab=repositories](#)  
+
+---
+
+✨ Ⓒ 2025 Menta Suprathik. Built with passion and precision.  
