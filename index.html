@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -28,6 +30,20 @@
                     <button class="dark-mode-toggle" onclick="toggleDarkMode()">
                         <i class="fas fa-moon" id="theme-icon"></i>
                     </button>
+                    <button class="hamburger-menu" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" id="mobile-menu">
+                    <button class="nav-link" onclick="scrollToSection('about')">About</button>
+                    <button class="nav-link" onclick="scrollToSection('education')">Education</button>
+                    <button class="nav-link" onclick="scrollToSection('skills')">Skills</button>
+                    <button class="nav-link" onclick="scrollToSection('certifications')">Certifications</button>
+                    <button class="nav-link" onclick="scrollToSection('projects')">Projects</button>
+                    <button class="nav-link" onclick="scrollToSection('contact')">Contact</button>
                 </div>
             </div>
         </div>
@@ -36,13 +52,34 @@
     <div class="main-content">
         <!-- Hero Section -->
         <section class="hero-section">
+            <!-- Sketchy Doodles Background -->
+            <svg class="doodle doodle-1" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M10,50 Q30,30 50,50 T90,50" stroke="currentColor" fill="none" stroke-width="2" opacity="0.3"/>
+                <circle cx="20" cy="20" r="8" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.2"/>
+                <path d="M70,70 L85,85" stroke="currentColor" stroke-width="2" opacity="0.25"/>
+            </svg>
+            <svg class="doodle doodle-2" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <rect x="15" y="15" width="30" height="30" stroke="currentColor" fill="none" stroke-width="1.5" rx="3" opacity="0.2" transform="rotate(15 30 30)"/>
+                <circle cx="65" cy="35" r="12" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.2"/>
+                <path d="M50,80 Q55,75 60,80" stroke="currentColor" fill="none" stroke-width="2" opacity="0.25"/>
+            </svg>
+            <svg class="doodle doodle-3" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M5,60 L20,40 L35,55 L50,35" stroke="currentColor" fill="none" stroke-width="2" opacity="0.2"/>
+                <circle cx="75" cy="75" r="10" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.25"/>
+                <path d="M80,20 Q85,15 90,20" stroke="currentColor" fill="none" stroke-width="2" opacity="0.2"/>
+            </svg>
+
             <div class="container">
                 <div class="hero-content">
                     <!-- Left Content -->
                     <div class="hero-left">                   
                         <div class="hero-text">
                             <h1 class="hero-title">Menta Suprathik</h1>
-                            <div class="hero-subtitle">Web developer</div>
+                            <!-- Typing subtitle: text is injected into #typed-text and a blinking cursor is shown -->
+                            <div class="hero-subtitle" aria-live="polite">
+                                <span id="typed-text" aria-hidden="false"></span>
+                                <span class="typing-cursor" aria-hidden="true">|</span>
+                            </div>
                             <p class="hero-description">
                                 Passionate about bridging hardware and software through innovative solutions. 
                                 Specializing in embedded systems, web development, and IoT applications.
@@ -74,16 +111,27 @@
                     <!-- Right Content - Profile Photo -->
                     <div class="hero-right">
                         <div class="profile-photo-container">
+                            <svg class="profile-doodle" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                <circle cx="150" cy="150" r="145" stroke="currentColor" fill="none" stroke-width="2" opacity="0.3" stroke-dasharray="5,5"/>
+                                <path d="M50,80 Q80,60 120,75" stroke="currentColor" fill="none" stroke-width="2" opacity="0.2"/>
+                                <path d="M200,220 Q220,200 240,220" stroke="currentColor" fill="none" stroke-width="2" opacity="0.2"/>
+                                <circle cx="30" cy="200" r="15" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.15"/>
+                                <circle cx="270" cy="50" r="12" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.15"/>
+                            </svg>
                             <div class="profile-photo-bg"></div>
                             <img src="Suprathik.png" alt="Menta Suprathik" class="profile-photo">
                             <div class="profile-photo-overlay"></div>
+                            <div class="sketch-frame"></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Bottom Doodle Elements -->
+            <svg class="doodle doodle-bottom" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M10,80 Q25,60 40,75 T70,80" stroke="currentColor" fill="none" stroke-width="2" opacity="0.2"/>
+                <circle cx="85" cy="50" r="8" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.2"/>
+            </svg>
         </section>
-
-        <!-- About Section -->
         <section id="about" class="about-section">
             <div class="container">
                 <div class="section-header">
@@ -249,83 +297,194 @@
                     </p>
                 </div>
                 
-                <div class="skills-grid">
-                    <div class="skill-card">
+                <div class="skill-controls">
+                    <input id="skill-search" class="skill-search" placeholder="Search skills (e.g. React, MQTT)..." aria-label="Search skills">
+                    <div class="skill-filters">
+                        <button class="skill-filter active" data-filter="all">All</button>
+                        <button class="skill-filter" data-filter="programming">Programming</button>
+                        <button class="skill-filter" data-filter="web">Web</button>
+                        <button class="skill-filter" data-filter="embedded">Embedded</button>
+                        <button class="skill-filter" data-filter="tools">Tools</button>
+                    </div>
+                    <button id="toggle-skill-view" class="btn btn-outline">Toggle View</button>
+                </div>
+
+                <!-- Radial skills view (hidden by default, toggled with the button above) -->
+                <div id="skills-radial" class="skills-radial-grid" aria-hidden="true">
+                    <!-- Each .radial-skill holds an SVG circular progress and a label -->
+                    <div class="radial-skill" data-percent="90" aria-label="Python 90 percent">
+                        <svg class="radial-chart" viewBox="0 0 80 80" role="img" aria-hidden="true">
+                            <circle class="radial-bg" cx="40" cy="40" r="32" fill="none" stroke-width="8"></circle>
+                            <circle class="radial-progress" cx="40" cy="40" r="32" fill="none" stroke-width="8" stroke-linecap="round" data-percentage="90"></circle>
+                        </svg>
+                        <div class="radial-label">Python <span class="radial-percent">90%</span></div>
+                    </div>
+
+                    <div class="radial-skill" data-percent="90" aria-label="JavaScript 90 percent">
+                        <svg class="radial-chart" viewBox="0 0 80 80" role="img" aria-hidden="true">
+                            <circle class="radial-bg" cx="40" cy="40" r="32" fill="none" stroke-width="8"></circle>
+                            <circle class="radial-progress" cx="40" cy="40" r="32" fill="none" stroke-width="8" stroke-linecap="round" data-percentage="90"></circle>
+                        </svg>
+                        <div class="radial-label">JavaScript <span class="radial-percent">90%</span></div>
+                    </div>
+
+                    <div class="radial-skill" data-percent="92" aria-label="C 92 percent">
+                        <svg class="radial-chart" viewBox="0 0 80 80" role="img" aria-hidden="true">
+                            <circle class="radial-bg" cx="40" cy="40" r="32" fill="none" stroke-width="8"></circle>
+                            <circle class="radial-progress" cx="40" cy="40" r="32" fill="none" stroke-width="8" stroke-linecap="round" data-percentage="92"></circle>
+                        </svg>
+                        <div class="radial-label">C <span class="radial-percent">92%</span></div>
+                    </div>
+
+                    <div class="radial-skill" data-percent="88" aria-label="CSS 88 percent">
+                        <svg class="radial-chart" viewBox="0 0 80 80" role="img" aria-hidden="true">
+                            <circle class="radial-bg" cx="40" cy="40" r="32" fill="none" stroke-width="8"></circle>
+                            <circle class="radial-progress" cx="40" cy="40" r="32" fill="none" stroke-width="8" stroke-linecap="round" data-percentage="88"></circle>
+                        </svg>
+                        <div class="radial-label">CSS <span class="radial-percent">88%</span></div>
+                    </div>
+
+                    <div class="radial-skill" data-percent="82" aria-label="Arduino 82 percent">
+                        <svg class="radial-chart" viewBox="0 0 80 80" role="img" aria-hidden="true">
+                            <circle class="radial-bg" cx="40" cy="40" r="32" fill="none" stroke-width="8"></circle>
+                            <circle class="radial-progress" cx="40" cy="40" r="32" fill="none" stroke-width="8" stroke-linecap="round" data-percentage="82"></circle>
+                        </svg>
+                        <div class="radial-label">Arduino <span class="radial-percent">82%</span></div>
+                    </div>
+
+                    <div class="radial-skill" data-percent="92" aria-label="Git 92 percent">
+                        <svg class="radial-chart" viewBox="0 0 80 80" role="img" aria-hidden="true">
+                            <circle class="radial-bg" cx="40" cy="40" r="32" fill="none" stroke-width="8"></circle>
+                            <circle class="radial-progress" cx="40" cy="40" r="32" fill="none" stroke-width="8" stroke-linecap="round" data-percentage="92"></circle>
+                        </svg>
+                        <div class="radial-label">Git <span class="radial-percent">92%</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-grid" id="skills-grid">
+
+                    <div class="skill-card" data-category="programming">
                         <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
+                            <div class="skill-icon"><i class="fas fa-code"></i></div>
                             <h3 class="skill-title">Programming</h3>
                         </div>
                         <div class="skill-content">
                             <ul class="skill-list">
-                                <li>C</li>
-                                <li>Python</li>
-                                <li>Java</li>
+                                <li data-level="90"><span class="skill-name">Python</span><span class="skill-level">90%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="90" style="width:0%"></div></div></li>
+                                <li data-level="80"><span class="skill-name">Core Java</span><span class="skill-level">80%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="80" style="width:0%"></div></div></li>
+                                <li data-level="92"><span class="skill-name">C</span><span class="skill-level">92%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="92" style="width:0%"></div></div></li>
+                                <li data-level="88"><span class="skill-name">Embedded C</span><span class="skill-level">88%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="88" style="width:0%"></div></div></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="skill-card">
+                    <div class="skill-card" data-category="web">
                         <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <h3 class="skill-title">Web Development</h3>
+                            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+                            <h3 class="skill-title">Development & Backend</h3>
                         </div>
                         <div class="skill-content">
                             <ul class="skill-list">
-                                <li>React</li>
-                                <li>Node.js</li>
-                                <li>Java-Script</li>
-                                <li>Express</li>
-                                <li>HTML/CSS</li>
-                                <li>REST APIs</li>
-                                <li>MongoDB</li>
-                                <li>MySQL</li>
-                                <li>Oracle sql</li>
+                                <li data-level="90"><span class="skill-name">HTML</span><span class="skill-level">90%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="90" style="width:0%"></div></div></li>
+                                <li data-level="88"><span class="skill-name">CSS</span><span class="skill-level">88%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="88" style="width:0%"></div></div></li>
+                                <li data-level="90"><span class="skill-name">JavaScript</span><span class="skill-level">90%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="90" style="width:0%"></div></div></li>
+                                <li data-level="85"><span class="skill-name">React</span><span class="skill-level">85%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="85" style="width:0%"></div></div></li>
+                                <li data-level="80"><span class="skill-name">Node.js</span><span class="skill-level">80%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="80" style="width:0%"></div></div></li>
+                                <li data-level="92"><span class="skill-name">Version Control (Git / GitHub)</span><span class="skill-level">92%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="92" style="width:0%"></div></div></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="skill-card">
+                    <div class="skill-card" data-category="databases">
                         <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fas fa-microchip"></i>
-                            </div>
-                            <h3 class="skill-title">Embedded Systems</h3>
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
+                            <h3 class="skill-title">Databases</h3>
                         </div>
                         <div class="skill-content">
                             <ul class="skill-list">
-                                <li>Arduino</li>
-                                <li>Raspberry Pi</li>
-                                <li>Microcontrollers</li>
-                                <li>Real-time Systems</li>
+                                <li data-level="80"><span class="skill-name">MySQL</span><span class="skill-level">80%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="80" style="width:0%"></div></div></li>
+                                <li data-level="75"><span class="skill-name">Oracle SQL</span><span class="skill-level">75%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="75" style="width:0%"></div></div></li>
+                                <li data-level="78"><span class="skill-name">MongoDB</span><span class="skill-level">78%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="78" style="width:0%"></div></div></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="skill-card">
+                    <div class="skill-card" data-category="microcontrollers">
                         <div class="skill-header">
-                            <div class="skill-icon">
-                                <i class="fas fa-terminal"></i>
-                            </div>
-                            <h3 class="skill-title">Tools & Platforms</h3>
+                            <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+                            <h3 class="skill-title">Microcontrollers</h3>
                         </div>
                         <div class="skill-content">
                             <ul class="skill-list">
-                                <li>Git</li>
-                                <li>vs-code</li>
+                                <li data-level="65"><span class="skill-name">ARM7 LPC2148 (Basic)</span><span class="skill-level">65%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="65" style="width:0%"></div></div></li>
+                                <li data-level="82"><span class="skill-name">Arduino</span><span class="skill-level">82%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="82" style="width:0%"></div></div></li>
+                                <li data-level="65"><span class="skill-name">STM32 (Basic)</span><span class="skill-level">65%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="65" style="width:0%"></div></div></li>
                             </ul>
-                            <br>
-                            <h3 class="skill-title">Reporting Tools</h3>
-                            <ul class="skill-list">
-                                <li>OTBI</li>
-                                <li>BI-Publisher</li>
-                            </ul>
-
                         </div>
                     </div>
+
+                    <div class="skill-card" data-category="embedded">
+                        <div class="skill-header">
+                            <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+                            <h3 class="skill-title">Embedded Concepts</h3>
+                        </div>
+                        <div class="skill-content">
+                            <ul class="skill-list">
+                                <li data-level="88"><span class="skill-name">GPIO</span><span class="skill-level">88%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="88" style="width:0%"></div></div></li>
+                                <li data-level="85"><span class="skill-name">Timers</span><span class="skill-level">85%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="85" style="width:0%"></div></div></li>
+                                <li data-level="83"><span class="skill-name">Interrupts</span><span class="skill-level">83%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="83" style="width:0%"></div></div></li>
+                                <li data-level="80"><span class="skill-name">UART</span><span class="skill-level">80%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="80" style="width:0%"></div></div></li>
+                                <li data-level="78"><span class="skill-name">ADC</span><span class="skill-level">78%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="78" style="width:0%"></div></div></li>
+                                <li data-level="76"><span class="skill-name">SPI</span><span class="skill-level">76%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="76" style="width:0%"></div></div></li>
+                                <li data-level="75"><span class="skill-name">I2C</span><span class="skill-level">75%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="75" style="width:0%"></div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-category="tools">
+                        <div class="skill-header">
+                            <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                            <h3 class="skill-title">Tools</h3>
+                        </div>
+                        <div class="skill-content">
+                            <ul class="skill-list">
+                                <li data-level="92"><span class="skill-name">Git</span><span class="skill-level">92%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="92" style="width:0%"></div></div></li>
+                                <li data-level="92"><span class="skill-name">GitHub</span><span class="skill-level">92%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="92" style="width:0%"></div></div></li>
+                                <li data-level="70"><span class="skill-name">LabVIEW</span><span class="skill-level">70%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="70" style="width:0%"></div></div></li>
+                                <li data-level="82"><span class="skill-name">Linux</span><span class="skill-level">82%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="82" style="width:0%"></div></div></li>
+                                <li data-level="60"><span class="skill-name">Keil μVision (Basic)</span><span class="skill-level">60%</span>
+                                    <div class="skill-proficiency"><div class="skill-fill" data-target="60" style="width:0%"></div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -548,6 +707,11 @@
             </div>
         </footer>
     </div>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
