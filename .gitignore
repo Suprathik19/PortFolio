@@ -1,0 +1,9 @@
+# Ignore markdown documentation files
+*.md
+*.txt
+# Common ignores
+node_modules/
+.DS_Store
+.env
+.env.local
+*.log

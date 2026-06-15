@@ -1,0 +1,57 @@
+{
+  "name": "ece-portfolio-vanilla",
+  "version": "1.0.0",
+  "description": "A vanilla HTML/CSS/JS portfolio for an ECE student with violet theme",
+  "author": "Alex Johnson",
+  "license": "MIT",
+  "files": {
+    "index.html": "Main HTML structure with semantic markup",
+    "styles.css": "Complete CSS styling with violet theme and dark mode",
+    "script.js": "JavaScript for interactivity and functionality",
+    "profile-photo.jpg": "Profile photo (replace with your own)",
+    "README.md": "Complete documentation and customization guide"
+  },
+  "features": [
+    "Responsive design (mobile-first)",
+    "Dark mode toggle with persistence",
+    "Smooth scrolling navigation",
+    "Contact form with validation",
+    "Resume download functionality",
+    "Violet color theme using OKLCH",
+    "Hover animations and transitions",
+    "Achievement cards with stats",
+    "Technical skills with list formatting",
+    "Certification cards",
+    "Project showcase",
+    "Social media links",
+    "Accessibility features",
+    "SEO-friendly markup"
+  ],
+  "technologies": {
+    "frontend": ["HTML5", "CSS3", "JavaScript (ES6+)"],
+    "fonts": ["Google Fonts (Inter, Playfair Display)"],
+    "icons": ["Font Awesome 6"],
+    "colors": "OKLCH color space",
+    "responsive": "CSS Grid & Flexbox"
+  },
+  "browser_support": {
+    "chrome": "90+",
+    "firefox": "88+",
+    "safari": "14+",
+    "edge": "90+",
+    "mobile": "iOS Safari 14+, Chrome Mobile 90+"
+  },
+  "deployment": {
+    "static_hosting": ["GitHub Pages", "Netlify", "Vercel", "Surge"],
+    "requirements": "Any modern web server or file hosting",
+    "build_step": "None required - ready to deploy"
+  },
+  "customization": {
+    "personal_info": "Update in index.html",
+    "colors": "Modify CSS custom properties in styles.css",
+    "content": "Replace placeholder content with your own",
+    "resume": "Update resume content in script.js",
+    "photo": "Replace profile-photo.jpg with your image",
+    "contact_form": "Configure with Formspree, Netlify Forms, or custom backend"
+  }
+}

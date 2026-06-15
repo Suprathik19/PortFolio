@@ -1,0 +1,743 @@
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suprathik portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <div class="nav-brand">Suprathik</div>
+                <div class="nav-items">
+                    <div class="nav-links">
+                        <button class="nav-link" onclick="scrollToSection('about')">About</button>
+                        <button class="nav-link" onclick="scrollToSection('education')">Education</button>
+                        <button class="nav-link" onclick="scrollToSection('skills')">Skills</button>
+                        <button class="nav-link" onclick="scrollToSection('certifications')">Certifications</button>
+                        <button class="nav-link" onclick="scrollToSection('projects')">Projects</button>
+                        <button class="nav-link" onclick="scrollToSection('contact')">Contact</button>
+                    </div>
+                    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                    <button class="dark-mode-toggle" onclick="showAdminLogin()" title="Click to test Admin Panel" style="margin-left: 10px;">
+                        <i class="fas fa-lock"></i>
+                    </button>
+                    <button class="hamburger-menu" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" id="mobile-menu">
+                    <button class="nav-link" onclick="scrollToSection('about')">About</button>
+                    <button class="nav-link" onclick="scrollToSection('education')">Education</button>
+                    <button class="nav-link" onclick="scrollToSection('skills')">Skills</button>
+                    <button class="nav-link" onclick="scrollToSection('certifications')">Certifications</button>
+                    <button class="nav-link" onclick="scrollToSection('projects')">Projects</button>
+                    <button class="nav-link" onclick="scrollToSection('contact')">Contact</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <!-- Particle Network Background -->
+            <canvas id="particle-canvas"></canvas>
+
+            <!-- Sketchy Doodles Background -->
+            <svg class="doodle doodle-1" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M10,50 Q30,30 50,50 T90,50" stroke="currentColor" fill="none" stroke-width="2" opacity="0.3" />
+                <circle cx="20" cy="20" r="8" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.2" />
+                <path d="M70,70 L85,85" stroke="currentColor" stroke-width="2" opacity="0.25" />
+            </svg>
+            <svg class="doodle doodle-2" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <rect x="15" y="15" width="30" height="30" stroke="currentColor" fill="none" stroke-width="1.5" rx="3"
+                    opacity="0.2" transform="rotate(15 30 30)" />
+                <circle cx="65" cy="35" r="12" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.2" />
+                <path d="M50,80 Q55,75 60,80" stroke="currentColor" fill="none" stroke-width="2" opacity="0.25" />
+            </svg>
+            <svg class="doodle doodle-3" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M5,60 L20,40 L35,55 L50,35" stroke="currentColor" fill="none" stroke-width="2" opacity="0.2" />
+                <circle cx="75" cy="75" r="10" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.25" />
+                <path d="M80,20 Q85,15 90,20" stroke="currentColor" fill="none" stroke-width="2" opacity="0.2" />
+            </svg>
+
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Left Content -->
+                    <div class="hero-left">
+                        <div class="hero-text">
+                            <h1 class="hero-title">Menta Suprathik</h1>
+                            <!-- Typing subtitle: text is injected into #typed-text and a blinking cursor is shown -->
+                            <div class="hero-subtitle" aria-live="polite">
+                                <span id="typed-text" aria-hidden="false">Web Developer</span>
+                                <span class="typing-cursor" aria-hidden="true">|</span>
+                            </div>
+                            <p class="hero-description">
+                                Passionate about bridging hardware and software through innovative solutions.
+                                Specializing in embedded systems, web development, and IoT applications.
+                            </p>
+                        </div>
+
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                                <span>View Projects</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button class="btn btn-outline" onclick="downloadResume()">
+                                <i class="fas fa-download"></i>
+                                <span>Download Resume</span>
+                            </button>
+                            <button class="btn btn-outline" onclick="scrollToSection('contact')">
+                                <i class="fas fa-envelope"></i>
+                                <span>Get in Touch</span>
+                            </button>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://github.com/Suprathik19?tab=repositories" class="social-link"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/mentasuprathik/" class="social-link"><i
+                                    class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Right Content - Profile Photo -->
+                    <div class="hero-right">
+                        <div class="profile-photo-container">
+                            <svg class="profile-doodle" viewBox="0 0 300 300" preserveAspectRatio="none">
+                                <circle cx="150" cy="150" r="145" stroke="currentColor" fill="none" stroke-width="2"
+                                    opacity="0.3" stroke-dasharray="5,5" />
+                                <path d="M50,80 Q80,60 120,75" stroke="currentColor" fill="none" stroke-width="2"
+                                    opacity="0.2" />
+                                <path d="M200,220 Q220,200 240,220" stroke="currentColor" fill="none" stroke-width="2"
+                                    opacity="0.2" />
+                                <circle cx="30" cy="200" r="15" stroke="currentColor" fill="none" stroke-width="1.5"
+                                    opacity="0.15" />
+                                <circle cx="270" cy="50" r="12" stroke="currentColor" fill="none" stroke-width="1.5"
+                                    opacity="0.15" />
+                            </svg>
+                            <div class="profile-photo-bg"></div>
+                            <img src="Suprathik.png" alt="Menta Suprathik" class="profile-photo">
+                            <div class="profile-photo-overlay"></div>
+                            <div class="sketch-frame"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Doodle Elements -->
+            <svg class="doodle doodle-bottom" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M10,80 Q25,60 40,75 T70,80" stroke="currentColor" fill="none" stroke-width="2" opacity="0.2" />
+                <circle cx="85" cy="50" r="8" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.2" />
+            </svg>
+        </section>
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-description">
+                        Dedicated ECE student with a passion for technology and innovation
+                    </p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="about-background">
+                            <h3 class="about-heading">Background</h3>
+                            <p class="about-paragraph">
+                                Currently pursuing a Bachelor's degree in Electrical and Computer Engineering with a
+                                focus on IT applications.
+                                I'm passionate about creating solutions that combine hardware design with modern
+                                software development.
+                            </p>
+                            <p class="about-paragraph">
+                                My interests span from low-level embedded programming to full-stack web development,
+                                always looking for ways to innovate at the intersection of hardware and software.
+                            </p>
+                        </div>
+
+                        <div class="focus-areas">
+                            <h3 class="about-heading">Focus Areas</h3>
+                            <div class="focus-grid">
+                                <div class="focus-item">
+                                    <i class="fas fa-microchip"></i>
+                                    <span>Embedded Systems</span>
+                                </div>
+                                <div class="focus-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Web Development</span>
+                                </div>
+                                <div class="focus-item">
+                                    <i class="fas fa-database"></i>
+                                    <span>IoT Systems</span>
+                                </div>
+                                <!-- <div class="focus-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Digital Signal Processing</span>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievement Cards -->
+                    <div class="achievements">
+                        <div class="achievement-grid">
+                            <div class="achievement-card">
+                                <div class="achievement-number" id="stat-cgpa">9.3</div>
+                                <div class="achievement-label">CGPA</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number" id="stat-projects">10+</div>
+                                <div class="achievement-label">Projects</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number" id="stat-problems">100+</div>
+                                <div class="achievement-label">Coding Problems</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number" id="stat-certifications">3</div>
+                                <div class="achievement-label">Certifications</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number" id="stat-internships">1</div>
+                                <div class="achievement-label">Internships</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Education</h2>
+                    <p class="section-description">
+                        Academic journey and qualifications
+                    </p>
+                </div>
+
+                <div class="education-content" id="education-content">
+                    <div class="education-card">
+                        <div class="education-main">
+                            <div class="education-degree">
+                                <h3 class="degree-title">B.Tech in ECE</h3>
+                                <p class="university-name">VIT-AP University, Andhra Pradesh</p>
+                                <div class="education-meta">
+                                    <span class="education-duration">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        2023 - 2027
+                                    </span>
+                                    <span class="education-gpa">
+                                        <i class="fas fa-star"></i>
+                                        <span id="edu-cgpa-display">CGPA: 9.23/10</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="education-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="education-main">
+                            <div class="education-degree">
+                                <h3 class="degree-title">Intermediate </h3>
+                                <p class="university-name">Sri Deepthi Junior College Proddatur , Andhra pradesh</p>
+                                <div class="education-meta">
+                                    <span class="education-duration">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        2021 - 2023
+                                    </span>
+                                    <span class="education-gpa">
+                                        <i class="fas fa-star"></i>
+                                        Percentage: 98.2%
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="education-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="education-main">
+                            <div class="education-degree">
+                                <h3 class="degree-title">SSC</h3>
+                                <p class="university-name">Gopi Krishna High School Proddatur , Andhra pradesh</p>
+                                <div class="education-meta">
+                                    <span class="education-duration">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        2017 - 2020
+                                    </span>
+                                    <span class="education-gpa">
+                                        <i class="fas fa-star"></i>
+                                        CGPA: 97.33
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="education-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-description">
+                        Interactive 3D overview of my technical expertise
+                    </p>
+                </div>
+
+                <!-- View 1: Cyber-HUD Skills (Default) -->
+                <div class="cyber-hud-skills" id="skills-hud" data-dynamic="true">
+
+                    <!-- Category: Languages -->
+                    <div class="hud-category">
+                        <h3 class="hud-category-title"><i class="fas fa-code"></i> Core Languages</h3>
+                        <div class="hud-skill-group">
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">Python</span>
+                                    <span class="hud-percent" data-target="90">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">Embedded C</span>
+                                    <span class="hud-percent" data-target="92">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="92%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">C / C++</span>
+                                    <span class="hud-percent" data-target="88">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="88%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">Java</span>
+                                    <span class="hud-percent" data-target="80">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category: Embedded & IoT -->
+                    <div class="hud-category">
+                        <h3 class="hud-category-title"><i class="fas fa-microchip"></i> Embedded & IoT</h3>
+                        <div class="hud-skill-group">
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">STM32 / ARM</span>
+                                    <span class="hud-percent" data-target="85">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">Arduino</span>
+                                    <span class="hud-percent" data-target="95">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="95%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">IoT / Sensors</span>
+                                    <span class="hud-percent" data-target="90">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">Protocols (I2C/SPI/UART)</span>
+                                    <span class="hud-percent" data-target="88">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category: Web Development -->
+                    <div class="hud-category">
+                        <h3 class="hud-category-title"><i class="fas fa-globe"></i> Web Development</h3>
+                        <div class="hud-skill-group">
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">React / TS</span>
+                                    <span class="hud-percent" data-target="85">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">JavaScript (ES6+)</span>
+                                    <span class="hud-percent" data-target="90">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">Node.js</span>
+                                    <span class="hud-percent" data-target="80">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="80%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">HTML5 / CSS3</span>
+                                    <span class="hud-percent" data-target="95">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category: Tools -->
+                    <div class="hud-category">
+                        <h3 class="hud-category-title"><i class="fas fa-tools"></i> Tools & DB</h3>
+                        <div class="hud-skill-group">
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">Git / GitHub</span>
+                                    <span class="hud-percent" data-target="92">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="92%"></div>
+                                </div>
+                            </div>
+                            <div class="hud-skill">
+                                <div class="hud-skill-info">
+                                    <span class="hud-skill-name">MySQL / MongoDB</span>
+                                    <span class="hud-percent" data-target="85">0%</span>
+                                </div>
+                                <div class="hud-progress-container">
+                                    <div class="hud-progress-fill" data-width="85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="certifications-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Certifications</h2>
+                    <p class="section-description">
+                        Professional credentials and achievements
+                    </p>
+                </div>
+
+                <div class="certification-cards" id="certification-cards">
+                    <div class="cert-card"
+                        style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="cert-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h3 class="cert-title">Embedded System Design</h3>
+                            <p class="cert-issuer">Maven Silicon</p>
+                            <p class="cert-date">2024</p>
+                            <p class="cert-description">Comprehensive training in Digital Electronics, ARM Architecture,
+                                and Embedded Protocols.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card"
+                        style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="cert-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h3 class="cert-title">C Certification</h3>
+                            <p class="cert-issuer">Applogic Computer Institute</p>
+                            <p class="cert-date">June 2023 - Aug 2023</p>
+                            <p class="cert-description">In-depth validation of C programming proficiency and memory
+                                management mastery.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card"
+                        style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="cert-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h3 class="cert-title">Python Certification</h3>
+                            <p class="cert-issuer">Applogic Computer Institute</p>
+                            <p class="cert-date">May 2023 - June 2023</p>
+                            <p class="cert-description">Certified expertise in Python scripting, data structures, and
+                                automation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-description">
+                        Showcase of my latest work in Embedded Systems and Web Development
+                    </p>
+                </div>
+
+                <!-- Project Filters -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all" onclick="filterProjects('all')">All</button>
+                    <button class="filter-btn" data-filter="embedded" onclick="filterProjects('embedded')">Embedded /
+                        IoT</button>
+                    <button class="filter-btn" data-filter="web" onclick="filterProjects('web')">Web Dev</button>
+                </div>
+
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Project 1: AI-Enabled Wearable (Most Recent/Complex) -->
+                    <div class="project-card" data-category="embedded"
+                        style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="project-header">
+                            <h3 class="project-title">AI-Enabled Wearable</h3>
+                            <a href="https://github.com/Suprathik19?tab=repositories" class="btn-neon-sm"
+                                aria-label="View Project"><i class="fas fa-code-branch"></i> Code</a>
+                        </div>
+                        <p class="project-description">
+                            A low-power STM32 wearable integrating MAX30102 & MPU6050 sensors. Features edge-level
+                            decision making for real-time risk classification without cloud dependency.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">STM32</span>
+                            <span class="tech-badge">Edge AI</span>
+                            <span class="tech-badge">IoT</span>
+                            <span class="tech-badge">C/C++</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: StockFlow -->
+                    <div class="project-card" data-category="web"
+                        style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="project-header">
+                            <h3 class="project-title">StockFlow - Inventory</h3>
+                            <a href="https://github.com/Suprathik19?tab=repositories" class="btn-neon-sm"
+                                aria-label="View Project"><i class="fas fa-code-branch"></i> Code</a>
+                        </div>
+                        <p class="project-description">
+                            Full-stack inventory dashboard with real-time analytics, role-based access control, and
+                            low-stock alerts. Built for scalability and performance.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">TypeScript</span>
+                            <span class="tech-badge">Tailwind</span>
+                            <span class="tech-badge">Node.js</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: EcoShield -->
+                    <div class="project-card" data-category="embedded"
+                        style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="project-header">
+                            <h3 class="project-title">EcoShield - Env Monitor</h3>
+                            <a href="https://github.com/Suprathik19?tab=repositories" class="btn-neon-sm"
+                                aria-label="View Project"><i class="fas fa-code-branch"></i> Code</a>
+                        </div>
+                        <p class="project-description">
+                            Real-time environmental monitoring system using Arduino. Automates data processing for air
+                            quality, temperature, and humidity tracking.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Arduino</span>
+                            <span class="tech-badge">Embedded C</span>
+                            <span class="tech-badge">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects-cta">
+                    <button class="btn btn-neon" onclick="downloadResume()">
+                        <i class="fas fa-file-download"></i>
+                        <span>Download Full Resume</span>
+                    </button>
+                    <a href="https://github.com/Suprathik19" class="btn btn-outline" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>View All Projects</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="section-description">
+                        Interested in collaboration or discussing opportunities? I'd love to hear from you.
+                    </p>
+                </div>
+
+                <div class="contact-content">
+                    <!-- Left Side - Personal Details -->
+                    <div class="contact-info">
+                        <h3 class="contact-heading">Get in Touch</h3>
+
+                        <div class="contact-buttons">
+                            <a href="mailto:suprathik973@email.com" class="contact-button">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-text">
+                                    <div class="contact-label">suprathik973@email.com</div>
+                                </div>
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/mentasuprathik/" target="_blank" rel="noopener noreferrer" class="contact-button">
+                                <i class="fab fa-linkedin"></i>
+                                <div class="contact-text">
+                                    <div class="contact-label">https://www.linkedin.com/in/mentasuprathik/</div>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com/Suprathik19?tab=repositories" target="_blank" rel="noopener noreferrer" class="contact-button">
+                                <i class="fab fa-github"></i>
+                                <div class="contact-text">
+                                    <div class="contact-label">@Suprathik19</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Contact Form -->
+                    <div class="contact-form-container">
+                        <div class="contact-form-card">
+                            <form id="contact-form" class="contact-form">
+                                <h3 class="form-title">Send Me a Message</h3>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" id="name" name="name" class="form-input"
+                                            placeholder="Your full name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" id="email" name="email" class="form-input"
+                                            placeholder="your.email@example.com" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" id="subject" name="subject" class="form-input"
+                                        placeholder="What's this about?" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea id="message" name="message" class="form-textarea" rows="5"
+                                        placeholder="Tell me about your project or inquiry..." required></textarea>
+                                </div>
+
+                                <div id="success-message" class="success-message hidden">
+                                    <p>Message sent successfully! I'll get back to you soon.</p>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary form-submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>Send Message</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-text">
+                        <p>© 2025 Menta Suprathik. Built with passion and precision.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://github.com/Suprathik19?tab=repositories" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mentasuprathik/" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="portfolio-data.js"></script>
+    <script src="admin-integration.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
