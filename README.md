@@ -12,7 +12,7 @@ I am a dedicated **ECE (Electrical and Computer Engineering)** student with a st
 
 My interests range from **low-level embedded programming** to **full-stack web development** — always driven to explore the intersection between hardware and software.
 
-- 📊 **CGPA**: 9.3  
+- 📊 **CGPA**: 9.38
 - 🛠 **Projects Completed**: 15+  
 - 💡 **Coding Problems Solved**: 100+  
 - 🎓 **Certifications**: 3  
@@ -33,9 +33,9 @@ My interests range from **low-level embedded programming** to **full-stack web d
 
 ## 🛠 Technical Skills
 
-- **Programming Languages**: C, Python, Java  
+- **Programming Languages**: C, Python, core Java  
 - **Web Development**: React, Node.js, JavaScript, Express, HTML/CSS, REST APIs, MongoDB, MySQL, Oracle SQL  
-- **Embedded Systems**: Arduino, Raspberry Pi, Microcontrollers, Real-time Systems  
+- **Embedded Systems**: Arduino, Microcontrollers, Real-time Systems  
 - **Tools & Platforms**: Git, VS Code  
 - **Reporting Tools**: OTBI, BI-Publisher  
 
